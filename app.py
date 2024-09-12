@@ -4,7 +4,8 @@ import plotly_express as px
 car_data = pd.read_csv("vehicles_us.csv")
 st.header("Vehicle Advertisement")
 first_button = st.button("Construir histograma")
-second_button = st.button("construir grafico de dispersión")
+second_button = st.button("Construir histograma")
+third_button = st.button("construir grafico de dispersión")
 
 if first_button:
     st.write("Creacion de un histograma sobre la transmision para el conjunto de datos de anuncios de venta de coches")
@@ -23,6 +24,6 @@ if second_button:
 if third_button:
     st.write("Creacion de un grafico de dispersión para el conjunto de datos de anuncios de venta de coches")
 
-    fig = px.histogram(car_data, x="odometer", y="price")
+    fig = px.scatter(car_data, x="odometer", y="price")
 
     st.plotly_chart(fig, use_container_width=True)
